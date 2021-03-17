@@ -92,7 +92,7 @@ public class AdminController {
 		int result = AdminService.DeleteMember(infoID);
 		return "redirect:/Admin/Member.do";
 	}
-	
+	// 
 	/*회원 비밀번호 초기화*/
 	@RequestMapping("/ResetPw")
 	public String ResetPassword(int infoID){
