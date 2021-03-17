@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Company">
+   
+    <select id="getCompanyColor" parameterType="int" resultType="companyVO">
+        select * from company_info, userinfo
+       where FK_COM_ID = COM_ID
+       AND userinfo.info_id = #{id}
+        
+    </select>
+    
+    <select id="getCompanyList" resultType="companyVO">
+       select *
+       from company_info
+       where COM_STATUS = 1;
+    </select>
+    
+    <select id="UserIdCheck" parameterType="String">
+        select * from user_info 
+        from USER_ID = #{UserId} 
+        
+    </select>
+    
+	<update id="updateCompany" parameterType="int">
+        update company_info
+        set COM_STATUS = 0
+        where COM_ID = #{comid}
+    </update>
+    
+    <insert id="insertCompany" parameterType="companyVO">
+        insert into company_info
+        (COM_NAME
+        , COM_ADDR
+        , COM_PHONE
+        , COM_DATE
+        , COM_COLOR
+        )
+        values(
+        #{COM_NAME}
+        , #{COM_ADDR}
+        , #{COM_PHONE}
+        , now()
+        , #{COM_COLOR}
+        )
+    </insert>
+    
+    <update id="editCompany" parameterType="companyVO">
+        update company_info
+        set COM_NAME = #{COM_NAME}
+        	,COM_ADDR = #{COM_ADDR}
+        	,COM_PHONE = #{COM_PHONE}
+        where COM_ID = #{COM_ID}
+    </update>
+</mapper>

@@ -1,0 +1,8 @@
+.navbar.navbar-dark.sidebar.sidebar-dark.accordion.bg-gradient-primary {
+  color: var(--pink);
+  background: rgb(72,182,136);
+}
+
+.bg-gradient-primary {
+}
+

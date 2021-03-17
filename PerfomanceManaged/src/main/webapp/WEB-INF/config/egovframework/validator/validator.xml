@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE form-validation PUBLIC 
+    "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1//EN" 
+    "http://jakarta.apache.org/commons/dtds/validator_1_1.dtd">
+
+<form-validation>
+
+    <formset>
+        <form name="sampleVO">
+        	<field property="name" depends="required">
+        		<arg0 key="title.sample.name" />
+			</field>
+			<field property="description" depends="required">
+                <arg0 key="title.sample.description" />
+            </field>
+        	<field property="regUser" depends="required">
+        		<arg0 key="title.sample.regUser" />
+			</field>
+        </form>
+        
+      <!--   <form name="memberVo">
+            <field property="USERID" depends="required">
+                <arg0 key="errors.userid"/> 
+            </field>
+            <field property="USER_PW" depends="required">
+                <arg0 key="member.USER_PW"/> 
+            </field>
+            <field property="USER_NAME" depends="required">
+                <arg0 key="member.USER_NAME"/> 
+            </field>
+		    <field property="USER_EMAIL" depends="required">
+                <arg0 key="member.USER_EMAIL"/> 
+            </field>
+            <field property="USER_PHONE" depends="required">
+                <arg0 key="member.USER_PHONE"/> 
+            </field>
+            <field property="USER_COM" depends="required">
+                <arg0 key="member.USER_COM"/> 
+            </field>
+            <field property="USER_POSI" depends="required">
+                <arg0 key="member.USER_POSI"/> 
+            </field>            
+
+        </form> -->
+    </formset>
+
+</form-validation>

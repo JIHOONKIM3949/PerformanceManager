@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Calendar">
+    
+     <insert id="addCalendar" parameterType="calendarVO">
+         INSERT INTO calendar(
+         MON_START_DATE
+         , MON_END_DATE
+         , MON_TITLE
+         , MON_CONTENT
+         , COLOR
+         )
+         values(
+         #{MON_START_DATE}
+         ,#{MON_END_DATE}
+         ,#{MON_TITLE}
+         ,#{MON_CONTENT}
+         ,#{COLOR}
+         )
+     </insert>
+     
+     <select id="getCalendarList" parameterType="map" resultType="calendarVO">
+         select * from calendar
+         <![CDATA[where mon_start_date >  #{startDate} AND mon_end_date < #{endDate}]]>
+     </select>
+    
+     <update id="DeleteCalendar" parameterType="int">
+         update calendar
+         set calendar_status = 0
+         where mon_id = #{id}
+     </update>
+</mapper>

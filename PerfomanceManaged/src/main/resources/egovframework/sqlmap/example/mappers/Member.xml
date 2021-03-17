@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Member">
+    
+    <insert id="CreateMember" parameterType="memberVO">
+	INSERT INTO USERINFO(
+        USER_ID
+        , USER_PW
+        , USER_NAME
+        , USER_EMAIL
+        , USER_PHONE
+        , USER_POSI
+        , FK_COM_ID
+        , USER_TOKEN
+        )
+        VALUES(
+        #{USER_ID}
+        ,#{USER_PW}
+        , #{USER_NAME}
+        , #{USER_EMAIL}
+        , #{USER_PHONE}
+        , #{USER_POSI}
+        , #{FK_COM_ID}
+        , #{USER_TOKEN}
+        )
+	</insert>
+	
+    <select id="selectUserInfo" parameterType="int" resultType="memberVO">
+        select * from userinfo, company_info
+        where INFO_ID = #{info_id} AND userinfo.FK_COM_ID = company_info.COM_ID
+    </select>
+	
+    <update id="addGoogleEmail" parameterType="map">
+        update userinfo
+        set USER_TOKEN = #{gmail}
+        where USER_ID = #{USER_ID}
+    </update>
+	
+	
+    <select id="SelectListMember" resultType="memberVO">
+        select * from userinfo, company_info
+		where userinfo.fk_com_id = company_info.COM_ID  AND disabled = 1
+    </select>
+    
+    <update id="DeleteMember" parameterType="int">
+        update userinfo
+        set disabled = 0
+        where INFO_ID = #{infoID}
+    </update>
+    
+	<update id="ResetPassword" parameterType="int">
+        update userinfo
+        set USER_PW = 123
+        where INFO_ID = #{infoID}
+    </update>
+    
+	<update id="UnLockUser" parameterType="int">
+	    update userinfo
+	    set user_faile_count = 0
+	    where INFO_ID = #{id}
+	</update>
+	
+	<update id="UserStatusSuccess" parameterType="int">
+	    update userinfo
+	    set user_status = 1
+	    where INFO_ID = #{infoid}
+	</update>
+	
+	<update id="addFaileCount" parameterType="String">
+	    update userinfo
+	    set user_faile_count = user_faile_count + 1
+	    where USER_ID = #{USER_ID}
+	</update>
+	
+	<update id="updateUserInfo" parameterType="memberVO">
+	    update userinfo
+	    set USER_PHONE = #{USER_PHONE}
+	    , USER_EMAIL = #{USER_EMAIL}
+	    , USER_PW = #{USER_PW}
+	    , USER_POSI = #{USER_POSI}
+	</update>
+
+    <select id="selectDate">
+        select curdate();
+    </select>
+    
+    <select id="GetDisapprovedMemberList" resultType="memberVO">
+        select * from userinfo
+        where USER_STATUS = 0 AND disabled = 1
+    </select>
+    
+    <select id="LoginUserCheck" parameterType="memberVO" resultType="int">
+         select count(*) from userinfo
+ 		 where USER_ID = #{USER_ID} AND USER_PW = #{USER_PW};
+    </select>
+    
+    <select id="FindGoogleUser" parameterType="String" resultType="memberVO">
+        select * from userinfo
+        where USER_TOKEN = #{GoogleEmail}
+    </select>
+    
+    <select id="idCheck" parameterType="String" resultType="memberVO">
+        select * from userinfo
+        where USER_ID = #{USER_ID}
+        
+    </select>
+    
+    
+</mapper>
