@@ -11,7 +11,7 @@
   <meta name="author" content="GeeksLabs">
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
   <link rel="shortcut icon" href="img/favicon.png">
-
+<script src="<%=request.getContextPath()%>/resources/js/ckeditor.js"></script>
   <title>Blank | Creative - Bootstrap 3 Responsive Admin Template</title>
 
   <!-- Bootstrap CSS -->
@@ -191,7 +191,8 @@
               </div>
               
               <div class="form-group">
-                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="게시물 내용을 반드시 입력하여주세요." placeholder="게시물 내용을 입력하세요"></textarea>
+              	<textarea name="bcontent"></textarea>
+                <textarea class="form-control" id="bcontent" name="bcontent" rows="5" data-rule="required" data-msg="게시물 내용을 반드시 입력하여주세요." placeholder="게시물 내용을 입력하세요"></textarea>
                 <div class="validation"></div>
               </div>
 
@@ -232,7 +233,10 @@
   <!--custome script for all page-->
   <script src="<%=request.getContextPath()%>/resources/js/scripts.js"></script>
   <script src="<%=request.getContextPath()%>/resources/contactform/contactform.js"></script>
-
+  <!-- CKEditor -->
+  
+<script
+	src="<%=request.getContextPath()%>/resources/js/ckeditor.js"></script>
 </body>
 
 </html>
