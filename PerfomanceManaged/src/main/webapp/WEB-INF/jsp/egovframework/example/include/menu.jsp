@@ -73,8 +73,8 @@
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
             <ul class="sub">
-              <li><a class="" href="egovSampleList.do">자료 제출</a></li>
-              <li><a class="" href="egovSampleList.do">자유 게시판</a></li>
+              <li><a class="" href="DataSubmitBorder.do">자료 제출</a></li>
+              <li><a class="" href="DataSubmitBorder.do">자유 게시판</a></li>
               <li><a class="" href="egovSampleList.do"><span>질문 게시판</span></a></li>
 
 <!--               <li><a class="" href="login.html"><span>Login Page</span></a></li>

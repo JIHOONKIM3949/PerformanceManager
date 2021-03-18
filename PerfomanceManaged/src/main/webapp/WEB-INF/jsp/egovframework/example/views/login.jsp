@@ -35,6 +35,8 @@
     <script src="js/htmlq5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
+    
+
 
      <script>
     	function CheckForm(token){
@@ -148,8 +150,9 @@
 <body class="login-img3-body" onload="javascript:signOut(${loginResult})">
 
   <div class="container">
-
-    <form class="login-form" onsubmit="return CheckForm(${googletoken});" method="POST"  action="Login.do" >
+  
+  	
+		 <form class="login-form" onsubmit="return CheckForm(${googletoken});" method="POST"  action="Login.do" >
       <div class="login-wrap">
         <p class="login-img"><i class="icon_lock_alt"></i></p>
         <div class="input-group">
@@ -171,6 +174,10 @@
 			<a href="#" onclick="signOut();">Sign out</a>
       </div>
     </form>
+	
+  
+
+   
     
     <div class="text-right">
       <div class="credits">
@@ -181,5 +188,5 @@
 <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
  <script src="<%=request.getContextPath()%>/resources/js/jquery.js"></script>
 </body>
-
+ 
 </html>

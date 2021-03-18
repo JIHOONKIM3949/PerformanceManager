@@ -96,6 +96,11 @@ public class HomeController {
 		OAuth2Operations oauthOperations = googleConnectionFactory.getOAuthOperations();
 		String url = oauthOperations.buildAuthorizeUrl(GrantType.AUTHORIZATION_CODE, googleOAuth2Parameters);
 		String token = request.getParameter("google");
+		/*****/
+		/*Integer sessionId = (int)session.getAttribute("info_id");
+		logger.info(sessionId.toString());
+		model.addAttribute("sessionId", sessionId);*/
+		/*****/
 		
 		/*String teststr = request.getParameter("result");*/
 		/*logger.info("로그인 결과 : "+teststr);
@@ -154,7 +159,6 @@ public class HomeController {
 		AccessGrant accessGrant  = oauthOperations.exchangeForAccess(code, googleOAuth2Parameters.getRedirectUri(), null);
 		String accessToken = accessGrant.getAccessToken();
 		Long expireTime = accessGrant.getExpireTime();
-
 		if(expireTime != null && expireTime < System.currentTimeMillis()){
 			 accessToken = accessGrant.getRefreshToken();
 	         System.out.printf("accessToken is expired. refresh token = {}", accessToken);
@@ -202,5 +206,10 @@ public class HomeController {
 	@RequestMapping("fullcalendar1")
 	public String Example_FullCalendar(){
 		return "views/fullCalendar_Example2";
+	}
+	
+	@RequestMapping("DataSubmitBorder")
+	public String DataSubmitBorderPage(){
+		return "views/Boarder";
 	}
 }
