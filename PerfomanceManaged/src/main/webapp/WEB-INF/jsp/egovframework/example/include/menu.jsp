@@ -34,37 +34,7 @@
                           <span>대시보드</span>
                       </a>
           </li>
-          
-        <!--   <li class="sub-menu">
-            <a href="javascript:;" class="">
-                          <i class="icon_document_alt"></i>
-                          <span>Forms</span>
-                          <span class="menu-arrow arrow_carrot-right"></span>
-                      </a>
-            <ul class="sub">
-              <li><a class="" href="form_component.html">Form Elements</a></li>
-              <li><a class="" href="form_validation.html">Form Validation</a></li>
-            </ul>
-          </li> -->
-          
-<%--           <li>
-            <a class="" href="<%=request.getContextPath()%>/Chart/Chart.do">
-                          <i class="icon_piechart"></i>
-                          <span>차트</span>
-            </a>
-
-          </li --%>
-
-<!--           <li class="sub-menu">
-            <a href="javascript:;" class="">
-                          <i class="icon_table"></i>
-                          <span>캘린더</span>
-                          <span class="menu-arrow arrow_carrot-right"></span>
-                      </a>
-            <ul class="sub">
-              <li><a class="" href="basic_table.html">Basic Table</a></li>
-            </ul>
-          </li> -->
+      
 
           <li class="sub-menu">
             <a href="javascript:;" class="">
@@ -73,23 +43,13 @@
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
             <ul class="sub">
-              <li><a class="" href="DataSubmitBorder.do">자료 제출</a></li>
-              <li><a class="" href="DataSubmitBorder.do">자유 게시판</a></li>
+              <li><a class="" href="<%=request.getContextPath()%>/DataSubmitBorder.do">자료 제출</a></li>
+              <li><a class="" href="/DataSubmitBorder.do">자유 게시판</a></li>
               <li><a class="" href="egovSampleList.do"><span>질문 게시판</span></a></li>
-
-<!--               <li><a class="" href="login.html"><span>Login Page</span></a></li>
-              <li><a class="" href="contact.html"><span>Contact Page</span></a></li>
-              <li><a class="" href="blank.html">Blank Page</a></li>
-              <li><a class="" href="404.html">404 Error</a></li> -->
             </ul>
           </li>
 
-<%--           <li>
-            <a class="" href="<%=request.getContextPath()%>/MemberEdit.do">
-            <i class="icon_genius"></i>
-            <span>회원정보 수정</span>
-            </a>
-          </li> --%>
+
           
           <li>
             <a class="" href="<%=request.getContextPath()%>/fullcalendar.do">

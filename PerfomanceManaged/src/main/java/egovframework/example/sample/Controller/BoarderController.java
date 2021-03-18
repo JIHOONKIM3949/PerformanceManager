@@ -38,9 +38,9 @@ public class BoarderController {
 	@Resource(name="MemberService")
 	MemberService MemberService;
 	
-	@RequestMapping("BoardWrite")
+	@RequestMapping("boardWrite")
 	public String loadBoardWritePage(){
 		logger.info("loadBoardWirtePage Controller");
-		return "BoardDetail";
+		return "views/BoardDetail";
 	}
 }

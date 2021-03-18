@@ -210,6 +210,7 @@ public class HomeController {
 	
 	@RequestMapping("DataSubmitBorder")
 	public String DataSubmitBorderPage(){
+		logger.info("DataSubmitBorder");
 		return "views/Boarder";
 	}
 }
