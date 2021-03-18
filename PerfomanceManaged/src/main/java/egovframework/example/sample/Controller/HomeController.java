@@ -2,6 +2,7 @@ package egovframework.example.sample.Controller;
 
 
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -26,7 +27,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import egovframework.example.sample.Auth.TokenVerifier;
+import egovframework.example.sample.Vo.GubunVO;
+import egovframework.example.sample.Vo.IndicatorVO;
 import egovframework.example.sample.Vo.MemberVO;
+import egovframework.example.sample.service.HomeService;
 import egovframework.example.sample.service.MemberService;
 import egovframework.example.sample.web.AesCbc;
 
@@ -37,6 +41,9 @@ public class HomeController {
 	
 	@Resource(name="MemberService")
 	MemberService MemberService;
+	
+	@Resource(name="HomeService")
+	HomeService HomeService;
 	
 	@Resource(name="TokenVerifier")
 	TokenVerifier TokenVerifier;
@@ -50,9 +57,13 @@ public class HomeController {
 	
 	/*메인 페이지 이동*/
 	@RequestMapping("/home")
-	public String Login(HttpSession session){
-		logger.info("세션에 저장된 값 확인[home]==>> user : " + session.getAttribute("user"));
-		logger.info("세션에 저장된 값 확인[home] ==>> info_id : " + session.getAttribute("info_id"));
+	public String Login(HttpSession session, Model model){
+		List<GubunVO> gubunList = HomeService.getGubunList();
+		List<IndicatorVO> indiList = HomeService.getIndiList(); 
+		
+		//
+		model.addAttribute("indiList", indiList);
+	
 		return "views/home";
 	}
 	
@@ -207,6 +218,8 @@ public class HomeController {
 	public String Example_FullCalendar(){
 		return "views/fullCalendar_Example2";
 	}
+	
+	
 	
 	@RequestMapping("DataSubmitBorder")
 	public String DataSubmitBorderPage(){

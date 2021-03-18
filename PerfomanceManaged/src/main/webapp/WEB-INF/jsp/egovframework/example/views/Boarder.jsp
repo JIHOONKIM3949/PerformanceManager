@@ -199,8 +199,10 @@
           <div class="col-sm-8">
             <section class="panel">
               <header class="panel-heading">
-                		자료 제출 게시판
+                		자료 제출 게시판	
+              <a class="btn btn-default" href="boardWrite.do">글쓰기</a>
               </header>
+              
               <table class="table table-hover">
               	<colgroup>
               		<col style="width: 10%">
@@ -255,7 +257,7 @@
           </div>
           <div class="col-sm-2">
            
-				<a class="btn btn-default" href="boardWrite.do">글쓰기</a>
+				
             
           
           </div>
@@ -693,13 +695,7 @@
     <!--main content end-->
     <div class="text-right">
       <div class="credits">
-          <!--
-            All the links in the footer should remain intact.
-            You can delete the links only if you purchased the pro version.
-            Licensing information: https://bootstrapmade.com/license/
-            Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
-          -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+
         </div>
     </div>
   </section>

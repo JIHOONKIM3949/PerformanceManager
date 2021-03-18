@@ -6,7 +6,8 @@
     </select>
     
      <select id="SelectListIndicator" resultType="indicatorVO">
-       select * from indicator
+       select * from indicator, type
+       where indicator.FK_TYP_ID = type.TYP_ID
     </select>
     
 

@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="validator" uri="http://www.springmodules.org/tags/commons-validator"%>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="en">
@@ -25,7 +28,7 @@
   <!-- Custom styles -->
   <link href="<%=request.getContextPath()%>/resources/css/style.css" rel="stylesheet">
   <link href="<%=request.getContextPath()%>/resources/css/style-responsive.css" rel="stylesheet" />
-
+<script src="https://cdn.ckeditor.com/ckeditor5/12.3.1/classic/ckeditor.js"></script>
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
   <!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
@@ -39,6 +42,27 @@
       Author: BootstrapMade
       Author URL: https://bootstrapmade.com
     ======================================================= -->
+    
+    
+     <style type="text/css">
+	.ck-editor__editable {
+	       min-height: 500px;
+	}
+	
+	.image img {
+		width: 100%;
+	}
+	
+	   .blog_list_content{  	
+   			overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3; 
+            -webkit-box-orient: vertical;
+   }
+	
+</style>
+    
 </head>
 
 <body>
@@ -186,23 +210,39 @@
             <div id="errormessage"></div>
             <form action="" method="post" role="form" class="contactForm">
               <div class="form-group">
-                <input type="text" name="name" class="form-control" id="name" placeholder="게시물 제목을 입력하세요" data-rule="minlen:4" data-msg="게시물 제목은 4글자 이상이어야 합니다." />
+              	
+              
+                <input type="text" name="name" class="form-control" id="name" placeholder="게시물 제목을 입력하세요" data-rule="required" data-msg="제목은 반드시 입력되어야 합니다." />
                 <div class="validation"></div>
               </div>
               
               <div class="form-group">
-              	<textarea name="bcontent"></textarea>
-                <textarea class="form-control" id="bcontent" name="bcontent" rows="5" data-rule="required" data-msg="게시물 내용을 반드시 입력하여주세요." placeholder="게시물 내용을 입력하세요"></textarea>
+              <input style="height: 40px;" type="file" id="attach" name="attach" class="form-control" multiple/>
+              </div>
+              
+              <div class="form-group">
+              	<textarea style="width: 100%; height: 200px;"  id="bcontent" name="bcontent" placeholder="게시물 내용을 입력하세요" ></textarea>
+<!--                 <textarea class="form-control" id="bcontent" name="bcontent" rows="5" data-rule="required" data-msg="게시물 내용을 반드시 입력하여주세요." placeholder="게시물 내용을 입력하세요"></textarea> -->
                 <div class="validation"></div>
               </div>
-
-              <div class="text-center"><button type="submit" class="btn btn-primary btn-lg">글쓰기</button></div>
+              <div align="center">
+              <div class="text-center" style="display: inline-block;"><button type="submit" class="btn btn-primary btn-lg">글쓰기</button></div>
+              <div class="text-center" style="display: inline-block;"><button type="submit" class="btn btn-danger btn-lg">취소</button></div>
+              </div>
             </form>
           </div>
 
           <div class="col-lg-6">
             <div class="recent">
               <h3>요청 회사목록</h3>
+              <div class="panel-body">
+              	<ul>
+              	<c:forEach var="list" items="${companylist}" varStatus="status">
+              	
+              		<li><label for="checkbox${status.index}" style="cursor:pointer"><input type="checkbox" id="checkbox${status.index}"/>${list.COM_NAME}</label></li>
+              	</c:forEach>
+              	</ul>
+              </div>
             </div>
             
           </div>
@@ -213,13 +253,7 @@
     <!--main content end-->
     <div class="text-right">
       <div class="credits">
-          <!--
-            All the links in the footer should remain intact.
-            You can delete the links only if you purchased the pro version.
-            Licensing information: https://bootstrapmade.com/license/
-            Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
-          -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          
         </div>
     </div>
   </section>

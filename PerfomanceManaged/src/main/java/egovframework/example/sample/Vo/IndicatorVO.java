@@ -10,6 +10,17 @@ public class IndicatorVO {
 	private Date INDI_DATE; 
 	private int FK_TYP_ID;
 	private int Calendar_MON_ID;
+	private String TYP_TITLE;
+	
+	
+	
+
+	public String getTYP_TITLE() {
+		return TYP_TITLE;
+	}
+	public void setTYP_TITLE(String tYP_TITLE) {
+		TYP_TITLE = tYP_TITLE;
+	}
 	public int getINDI_ID() {
 		return INDI_ID;
 	}

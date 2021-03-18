@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="validator" uri="http://www.springmodules.org/tags/commons-validator" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 
@@ -42,6 +46,15 @@
     Author: BootstrapMade
     Author URL: https://bootstrapmade.com
   ======================================================= -->
+  
+  
+  
+  <style type="text/css">
+  td.total-td{
+  	text-align: center;
+  }
+  </style>
+  
 </head>
 
 <body>
@@ -191,14 +204,9 @@ text-align: center;
               <div class="panel-body">
                 <table class="table bootstrap-datatable">
                   <thead>
-                    
-                    <tr>
-     <!--                  <th rowspan="2" class="hometitle" valign="middle">구분<br/>1<br/>1</th>
-                      <th rowspan="2" class="top" valign="middle">유형</th>
-                      <th rowspan="2" class="hometitle" valign="middle">지표</th> -->
+<!--                     <tr>
                       <th colspan="7" class="hometitle">연차별 달성 목표</th>
-                    </tr>
-                  
+                    </tr> -->
                     <tr>
                     <th  class="hometitle" valign="middle">구분</th>
                       <th class="hometitle" valign="middle">유형</th>
@@ -208,414 +216,32 @@ text-align: center;
 	                    <th class="hometitle">3차년도<br> (달성 / 목표)</th>
 	                    <th class="hometitle">합계<br> (달성 / 목표)</th>
                     </tr>
+                    <!-- 지표갯수만큼 tr생성 -->
+                    <c:forEach var="indi" items="${indiList}">
+                    <tr>
+                    	<td class="total-td">구분</td>
+                    	<td class="total-td">${indi.TYP_TITLE}</td>
+                    	<td class="total-td">${indi.INDI_TITLE}</td>
+                    	<td class="total-td">1/10</td>
+                    	<td class="total-td">1/10</td>
+                    	<td class="total-td">1/10</td>
+                    	<td class="total-td">1/10</td>
+                    </tr>
+                    </c:forEach>
+                    <tr>
+                    	<!-- 총목표달성률 -->
+                    </tr>
+                    
                   </thead>
-                  
                 </table>
               </div>
-
-            </div>
-
-          </div>
-          <!--/col-->
- <!--          <div class="col-md-3">
-
-            <div class="social-box facebook">
-              <i class="fa fa-facebook"></i>
-              <ul>
-                <li>
-                  <strong>256k</strong>
-                  <span>friends</span>
-                </li>
-                <li>
-                  <strong>359</strong>
-                  <span>feeds</span>
-                </li>
-              </ul>
-            </div>
-            /social-box
-          </div>
-          <div class="col-md-3">
-
-            <div class="social-box google-plus">
-              <i class="fa fa-google-plus"></i>
-              <ul>
-                <li>
-                  <strong>962</strong>
-                  <span>followers</span>
-                </li>
-                <li>
-                  <strong>256</strong>
-                  <span>circles</span>
-                </li>
-              </ul>
-            </div>
-            /social-box
-
-          </div>
-          /col
-          <div class="col-md-3">
-
-            <div class="social-box twitter">
-              <i class="fa fa-twitter"></i>
-              <ul>
-                <li>
-                  <strong>1562k</strong>
-                  <span>followers</span>
-                </li>
-                <li>
-                  <strong>2562</strong>
-                  <span>tweets</span>
-                </li>
-              </ul>
-            </div> -->
-            <!--/social-box-->
-
-          </div>
-          <!--/col-->
-
-        </div>
-
-
-
-        <!-- statics end -->
-
-
-
-
-        <!-- project team & activity start -->
- <!--        <div class="row">
-          <div class="col-md-4 portlets">
-            Widget
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <div class="pull-left">Message</div>
-                <div class="widget-icons pull-right">
-                  <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
-                  <a href="#" class="wclose"><i class="fa fa-times"></i></a>
-                </div>
-                <div class="clearfix"></div>
-              </div>
-
-              <div class="panel-body">
-                Widget content
-                <div class="padd sscroll">
-
-                  <ul class="chats">
-
-                    Chat by us. Use the class "by-me".
-                    <li class="by-me">
-                      Use the class "pull-left" in avatar
-                      <div class="avatar pull-left">
-                        <img src="img/user.jpg" alt="" />
-                      </div>
-
-                      <div class="chat-content">
-                        In meta area, first include "name" and then "time"
-                        <div class="chat-meta">John Smith <span class="pull-right">3 hours ago</span></div>
-                        Vivamus diam elit diam, consectetur dapibus adipiscing elit.
-                        <div class="clearfix"></div>
-                      </div>
-                    </li>
-
-                    Chat by other. Use the class "by-other".
-                    <li class="by-other">
-                      Use the class "pull-right" in avatar
-                      <div class="avatar pull-right">
-                        <img src="img/user22.png" alt="" />
-                      </div>
-
-                      <div class="chat-content">
-                        In the chat meta, first include "time" then "name"
-                        <div class="chat-meta">3 hours ago <span class="pull-right">Jenifer Smith</span></div>
-                        Vivamus diam elit diam, consectetur fconsectetur dapibus adipiscing elit.
-                        <div class="clearfix"></div>
-                      </div>
-                    </li>
-
-                    <li class="by-me">
-                      <div class="avatar pull-left">
-                        <img src="img/user.jpg" alt="" />
-                      </div>
-
-                      <div class="chat-content">
-                        <div class="chat-meta">John Smith <span class="pull-right">4 hours ago</span></div>
-                        Vivamus diam elit diam, consectetur fermentum sed dapibus eget, Vivamus consectetur dapibus adipiscing elit.
-                        <div class="clearfix"></div>
-                      </div>
-                    </li>
-
-                    <li class="by-other">
-                      Use the class "pull-right" in avatar
-                      <div class="avatar pull-right">
-                        <img src="img/user22.png" alt="" />
-                      </div>
-
-                      <div class="chat-content">
-                        In the chat meta, first include "time" then "name"
-                        <div class="chat-meta">3 hours ago <span class="pull-right">Jenifer Smith</span></div>
-                        Vivamus diam elit diam, consectetur fermentum sed dapibus eget, Vivamus consectetur dapibus adipiscing elit.
-                        <div class="clearfix"></div>
-                      </div>
-                    </li>
-
-                  </ul>
-
-                </div> -->
-                <!-- Widget footer -->
-<!--                 <div class="widget-foot">
-
-                  <form class="form-inline">
-                    <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Type your message here...">
-                    </div>
-                    <button type="submit" class="btn btn-info">Send</button>
-                  </form>
-
-
-                </div> -->
-              </div>
-
-
             </div>
           </div>
-
-       <!--    <div class="col-lg-8">
-            Project Activity start
-            <section class="panel">
-              <div class="panel-body progress-panel">
-                <div class="row">
-                  <div class="col-lg-8 task-progress pull-left">
-                    <h1>To Do Everyday</h1>
-                  </div>
-                  <div class="col-lg-4">
-                    <span class="profile-ava pull-right">
-                                        <img alt="" class="simple" src="img/avatar1_small.jpg">
-                                        Jenifer smith
-                                </span>
-                  </div>
-                </div>
-              </div>
-              <table class="table table-hover personal-task">
-                <tbody>
-                  <tr>
-                    <td>Today</td>
-                    <td>
-                      web design
-                    </td>
-                    <td>
-                      <span class="badge bg-important">Upload</span>
-                    </td>
-                    <td>
-                      <span class="profile-ava">
-                                        <img alt="" class="simple" src="img/avatar1_small.jpg">
-                                    </span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Yesterday</td>
-                    <td>
-                      Project Design Task
-                    </td>
-                    <td>
-                      <span class="badge bg-success">Task</span>
-                    </td>
-                    <td>
-                      <div id="work-progress2"></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>21-10-14</td>
-                    <td>
-                      Generate Invoice
-                    </td>
-                    <td>
-                      <span class="badge bg-success">Task</span>
-                    </td>
-                    <td>
-                      <div id="work-progress3"></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>22-10-14</td>
-                    <td>
-                      Project Testing
-                    </td>
-                    <td>
-                      <span class="badge bg-primary">To-Do</span>
-                    </td>
-                    <td>
-                      <span class="profile-ava">
-                                        <img alt="" class="simple" src="img/avatar1_small.jpg">
-                                      </span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>24-10-14</td>
-                    <td>
-                      Project Release Date
-                    </td>
-                    <td>
-                      <span class="badge bg-info">Milestone</span>
-                    </td>
-                    <td>
-                      <div id="work-progress4"></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>28-10-14</td>
-                    <td>
-                      Project Release Date
-                    </td>
-                    <td>
-                      <span class="badge bg-primary">To-Do</span>
-                    </td>
-                    <td>
-                      <div id="work-progress5"></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Last week</td>
-                    <td>
-                      Project Release Date
-                    </td>
-                    <td>
-                      <span class="badge bg-primary">To-Do</span>
-                    </td>
-                    <td>
-                      <div id="work-progress1"></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>last month</td>
-                    <td>
-                      Project Release Date
-                    </td>
-                    <td>
-                      <span class="badge bg-success">To-Do</span>
-                    </td>
-                    <td>
-                      <span class="profile-ava">
-                                        <img alt="" class="simple" src="img/avatar1_small.jpg">
-                                      </span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </section>
-            Project Activity end
-          </div> -->
-        </div><br><br>
-
-<!--         <div class="row">
-          <div class="col-md-6 portlets">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h2><strong>상세 일정</strong></h2>
-                <div class="panel-actions">
-                  <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
-                  <a href="#" class="wclose"><i class="fa fa-times"></i></a>
-                </div>
-
-              </div><br><br><br>
-              <div class="panel-body">
-                Widget content
-
-                Below line produces calendar. I am using FullCalendar plugin.
-                <div id="calendar"></div>
-
-              </div>
-            </div>
-
           </div>
-
-          <div class="col-md-6 portlets">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <div class="pull-left">빠른 지표등록</div>
-                <div class="widget-icons pull-right">
-                  <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
-                  <a href="#" class="wclose"><i class="fa fa-times"></i></a>
-                </div>
-                <div class="clearfix"></div>
-              </div>
-              <div class="panel-body">
-                <div class="padd">
-
-                  <div class="form quick-post">
-                    Edit profile form (not working)
-                    <form class="form-horizontal">
-                    
-                                          <div class="form-group">
-                        <label class="control-label col-lg-2">지표명</label>
-                        <div class="col-lg-10">
-                          <select class="form-control">
-                                                  <option value="">- 지표 선택 -</option>
-                                                  <option value="1">지표1</option>
-                                                  <option value="2">지표2</option>
-                                                  <option value="3">지표3</option>
-                                                  <option value="4">지표4</option>
-                                                </select>
-                        </div>
-                      </div>
-                      Title
-                      <div class="form-group">
-                        <label class="control-label col-lg-2" for="title">제목</label>
-                        <div class="col-lg-10">
-                          <input type="text" class="form-control" id="title">
-                        </div>
-                      </div>
-                      Content
-                      <div class="form-group">
-                        <label class="control-label col-lg-2" for="content">내용</label>
-                        <div class="col-lg-10">
-                          <textarea class="form-control" id="content"></textarea>
-                        </div>
-                      </div>
-                      Cateogry
-
-                      Tags
-                      <div class="form-group">
-                        <label class="control-label col-lg-2" for="tags">Tags</label>
-                        <div class="col-lg-10">
-                          <input type="text" class="form-control" id="tags">
-                        </div>
-                      </div>
-
-                      Buttons
-                      <div class="form-group">
-                        Buttons
-                        <div class="col-lg-offset-2 col-lg-9">
-                          <button type="submit" class="btn btn-primary">저장</button>
-                          <button type="submit" class="btn btn-danger">취소</button>
-                          
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-
-
-                </div>
-                <div class="widget-foot">
-                  Footer goes here
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </div> -->
-        <!-- project team & activity end -->
-
       </section>
       <div class="text-right">
         <div class="credits">
-          <!--
-            All the links in the footer should remain intact.
-            You can delete the links only if you purchased the pro version.
-            Licensing information: https://bootstrapmade.com/license/
-            Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
-          -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+
         </div>
       </div>
     </section>
