@@ -219,11 +219,17 @@ public class HomeController {
 		return "views/fullCalendar_Example2";
 	}
 	
-	
-	
-	@RequestMapping("DataSubmitBorder")
+	@RequestMapping("DataSubmitBoarder")
 	public String DataSubmitBorderPage(){
 		logger.info("DataSubmitBorder");
 		return "views/Boarder";
 	}
+	
+	@RequestMapping("IndicatorPage")
+	public String loadIndicatorDetailpage(){
+		logger.info("지표 상세페이지 로드");
+		return "views/IndicatorDetail";
+	}
+	
+
 }

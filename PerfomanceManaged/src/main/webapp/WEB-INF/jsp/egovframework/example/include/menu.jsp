@@ -43,8 +43,8 @@
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
             <ul class="sub">
-              <li><a class="" href="<%=request.getContextPath()%>/DataSubmitBorder.do">자료 제출</a></li>
-              <li><a class="" href="/DataSubmitBorder.do">자유 게시판</a></li>
+              <li><a class="" href="<%=request.getContextPath()%>/DataSubmitBoarder.do">자료 제출</a></li>
+              <li><a class="" href="/DataSubmitBoarder.do">자유 게시판</a></li>
               <li><a class="" href="egovSampleList.do"><span>질문 게시판</span></a></li>
             </ul>
           </li>
@@ -62,6 +62,13 @@
             <a class="" href="<%=request.getContextPath()%>/fullcalendar.do">
             <i class="icon_genius"></i>
             <span>간트차트</span>
+            </a>
+          </li>
+          
+          <li>
+            <a class="" href="<%=request.getContextPath()%>/IndicatorPage.do">
+            <i class="icon_genius"></i>
+            <span>지표페이지(작업중)</span>
             </a>
           </li>          
           

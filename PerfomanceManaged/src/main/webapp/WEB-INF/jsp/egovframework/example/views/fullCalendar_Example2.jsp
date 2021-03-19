@@ -15,11 +15,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,600">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/FullCalendar_Example/css/main.css">
-	
-	
-	<div>
-    
-    </div>
+	<script src="<%=request.getContextPath()%>/resources/js/jquery.scrollTo.min.js"></script>
 
 </head>
 

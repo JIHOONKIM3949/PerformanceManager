@@ -9,6 +9,7 @@
 		<typeAlias alias="memberVO" type="egovframework.example.sample.Vo.MemberVO"/>
 		<typeAlias alias="calendarVO" type="egovframework.example.sample.Vo.CalendarVO"/>
 		<typeAlias alias="gubunVO" type="egovframework.example.sample.Vo.GubunVO"/>
+		<typeAlias alias="boarderVO" type="egovframework.example.sample.Vo.BoarderVO"/>
 		<typeAlias alias="companyVO" type="egovframework.example.sample.Vo.CompanyVO"/>
 		<typeAlias alias="indicatorVO" type="egovframework.example.sample.Vo.IndicatorVO"/>
 		<typeAlias alias="typeVO" type="egovframework.example.sample.Vo.TypeVO"/>

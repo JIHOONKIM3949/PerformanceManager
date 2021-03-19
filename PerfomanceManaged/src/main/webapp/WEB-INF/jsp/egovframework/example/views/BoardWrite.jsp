@@ -208,11 +208,11 @@
             </div>
             <div id="sendmessage">Your message has been sent. Thank you!</div>
             <div id="errormessage"></div>
-            <form action="" method="post" role="form" class="contactForm">
+            <form id="boardWriteForm" enctype="multipart/form-data" action="SaveContent.do" method="post" role="form" class="contactForm">
               <div class="form-group">
               	
               
-                <input type="text" name="name" class="form-control" id="name" placeholder="게시물 제목을 입력하세요" data-rule="required" data-msg="제목은 반드시 입력되어야 합니다." />
+                <input type="text" name="BOR_TITLE" class="form-control" id="BOR_TITLE" placeholder="게시물 제목을 입력하세요" data-rule="required" data-msg="제목은 반드시 입력되어야 합니다." />
                 <div class="validation"></div>
               </div>
               
@@ -221,7 +221,7 @@
               </div>
               
               <div class="form-group">
-              	<textarea style="width: 100%; height: 200px;"  id="bcontent" name="bcontent" placeholder="게시물 내용을 입력하세요" ></textarea>
+              	<textarea style="width: 100%; height: 200px;"  id="BOR_CONTENT" name="BOR_CONTENT" placeholder="게시물 내용을 입력하세요" ></textarea>
 <!--                 <textarea class="form-control" id="bcontent" name="bcontent" rows="5" data-rule="required" data-msg="게시물 내용을 반드시 입력하여주세요." placeholder="게시물 내용을 입력하세요"></textarea> -->
                 <div class="validation"></div>
               </div>
@@ -237,14 +237,28 @@
               <h3>요청 회사목록</h3>
               <div class="panel-body">
               	<ul>
+              	
               	<c:forEach var="list" items="${companylist}" varStatus="status">
               	
-              		<li><label for="checkbox${status.index}" style="cursor:pointer"><input type="checkbox" id="checkbox${status.index}"/>${list.COM_NAME}</label></li>
+              		<li><label for="checkbox${status.index}" style="cursor:pointer" value="${list}"><input type="checkbox" id="checkbox${status.index}"/>${list.COM_NAME}</label></li>
               	</c:forEach>
+              	
               	</ul>
               </div>
             </div>
-             <!-- xptmxm -->
+             <script type="text/javascript">
+             	function boardWrite();
+             	
+             	var btitle = $("#BOR_TITLE").val().trim();
+             	var bcontent = $("#BOR_CONTENT").val().trin();
+             	var formdata = new FormData();
+             	
+             	formdata.append("btitle", btitle);
+             	formdata.append("bcontent", bcontent);
+             	
+             	
+             	
+             </script>
           </div>
         </div>
         <!-- page end-->

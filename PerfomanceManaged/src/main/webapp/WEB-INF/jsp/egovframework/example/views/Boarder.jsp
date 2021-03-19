@@ -133,8 +133,8 @@
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
             <ul class="sub">
-              <li><a class="" href="<%=request.getContextPath()%>/DataSubmitBorder.do">자료 제출</a></li>
-              <li><a class="" href="/DataSubmitBorder.do">자유 게시판</a></li>
+              <li><a class="" href="<%=request.getContextPath()%>/DataSubmitBoarder.do">자료 제출</a></li>
+              <li><a class="" href="/DataSubmitBoarder.do">자유 게시판</a></li>
               <li><a class="" href="egovSampleList.do"><span>질문 게시판</span></a></li>
             </ul>
           </li>
@@ -200,7 +200,7 @@
             <section class="panel">
               <header class="panel-heading">
                 		자료 제출 게시판	
-              <a class="btn btn-default" href="boardWrite.do">글쓰기</a>
+              <a class="btn btn-default" href="boardWrite.do" style="float: right;">글쓰기</a>
               </header>
               
               <table class="table table-hover">

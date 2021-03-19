@@ -52,6 +52,7 @@
   <style type="text/css">
   td.total-td{
   	text-align: center;
+  	vertical-align: middle;
   }
   </style>
   
@@ -222,10 +223,10 @@ text-align: center;
                     	<td class="total-td">구분</td>
                     	<td class="total-td">${indi.TYP_TITLE}</td>
                     	<td class="total-td">${indi.INDI_TITLE}</td>
-                    	<td class="total-td">1/10</td>
-                    	<td class="total-td">1/10</td>
-                    	<td class="total-td">1/10</td>
-                    	<td class="total-td">1/10</td>
+                    	<td class="total-td">1/10<br><span style="font-weight: bold;">(10%)</span></td> <!-- 1차년도 -->
+                    	<td class="total-td">1/10<br><span style="font-weight: bold;">(10%)</span></td> <!-- 2차년도 -->
+                    	<td class="total-td">1/10<br><span style="font-weight: bold;">(10%)</span></td> <!-- 3차년도 -->
+                    	<td class="total-td">1/10<br><span style="font-weight: bold;">(10%)</span></td> <!-- 합계 -->
                     </tr>
                     </c:forEach>
                     <tr>

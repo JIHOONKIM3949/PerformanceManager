@@ -1,7 +1,7 @@
 var myEditor;
 
 ClassicEditor 
-    .create( document.querySelector('#bcontent'), {
+    .create( document.querySelector('#BOR_CONTENT'), {
 		ckfinder: {
 	        uploadUrl: "/teamproject/blog/upload"
 	    }
